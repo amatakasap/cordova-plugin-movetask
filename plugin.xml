@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-movetask" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>MoveTask</name>
+    <js-module name="MoveTask" src="www/MoveTask.js">
+        <clobbers target="cordova.plugins.MoveTask" />
+    </js-module>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+        <feature name="MoveTask">
+            <param name="android-package" value="com.cordova.plugins.movetask.MoveTask"/>
+        </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.REORDER_TASKS" />
+        </config-file>
+
+        <source-file src="src/android/MoveTask.java" target-dir="src/com/cordova/plugins/movetask" />
+    </platform>
+</plugin>
